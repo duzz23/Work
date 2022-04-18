@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+login :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sitebar.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+    <!--форма-->
+<form method="post">
+    {% csrf_token %} <!--Без этого тега данные не будут сохраняться на сервер и проверяться-->
+    {{ form.as_p }} <!-- Элименты формы будит в пораграфе -->
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+</form>
+
+
+{% endblock %}
